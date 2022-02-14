@@ -1,10 +1,14 @@
 <%= form_with(model: @board, local: true) do |form| %>
-  <div class='container m-5 bg-info'>
+  <div class='container m-5'>
     <%= form.label :title%>
     <%= form.text_field :title%>
     <p>imagen</p>
   <div>
+    <%=form.label :content%>
+    <%=form.rich_text_area :content%>
+  <div class='mt-2'>
     <%= form.submit%>
+  </div>
   </div>
   </div>
 <%end%>
