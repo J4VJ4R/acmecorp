@@ -1,5 +1,11 @@
-<h1><%= @board.title%></h1>
-<h2>image</h2>
-<div>
-  <%= @board.content%>
+
+<div class="container">
+  <h1><%= @board.title%></h1>
+  <h2>image</h2>
+  <div>
+    <%= @board.content%>
+  </div>
+  <div>
+    <%= link_to "Eliminar Tablero", @article, method: :delete %>
+  </div>
 </div>

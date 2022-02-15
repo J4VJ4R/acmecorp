@@ -1,0 +1,16 @@
+<%= form_with(model: @board, local: true) do |form| %>
+<div class="container-fluid bg-info">
+  <div class='container p-2 bg-light '>
+    <%= form.label :title, "Título"%>
+    <%= form.text_field :title%>
+    <p>imagen</p>
+  <div>
+    <%=form.label :content%>
+    <%=form.rich_text_area :content%>
+  <div class='mt-2'>
+    <%= form.submit%>
+  </div>
+  </div>
+  </div>
+</div>
+<%end%>

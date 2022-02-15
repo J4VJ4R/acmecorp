@@ -16,6 +16,17 @@
   </head>
 
   <body>
+    <% if notice %>
+      <p class="alert alert-primary"><%= notice %></p>
+    <%end%>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <%end%>
+    <div class="container-fluid bg-info">
+    <div class="container">
+      <%= render "./partials/nav" %>
+    </div>
+    </div>
     <%= yield %>
 
   </body>
