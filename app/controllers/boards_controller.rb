@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_action :find_article, except: [:new, :create, :index]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @boards = Board.all
@@ -14,7 +14,9 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create(title: params[:board][:title], content: params[:board][:content])
+    @board = Board.create(title: params[:board][:title],
+                          content: params[:board][:content],
+                          user: current_user)
     redirect_to index_path
   end
 
