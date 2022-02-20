@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :find_article, except: [:new, :create, :index]
+  before_action :find_article, except: [:new, :create, :index, :from_author]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -14,14 +14,12 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create(title: params[:board][:title],
-                          content: params[:board][:content],
-                          user: current_user)
-    redirect_to index_path
+    @board = current_user.boards.create(boards_params)
+    redirect_to @board
   end
 
   def update
-    @board.update(title: params[:board][:title], content: params[:board][:content])
+    @board.update(boards_params)
     redirect_to @board
   end
 
@@ -32,5 +30,13 @@ class BoardsController < ApplicationController
 
   def find_article
     @board = Board.find(params[:id])
+  end
+
+  def from_author
+    @user = User.find(params[:user_id])
+  end
+
+  def boards_params
+    params.require(:board).permit(:title, :content)
   end
 end

@@ -1,6 +1,6 @@
 <div class="container-fluid bg-info ">
-  <h1 class="text-center py-5">CANVAS PARA EL DISEÑO DE PROYECTOS</h1>
+  <h1 class="text-center py-5">Tableros creados por <%= @user.email %></h1>
   <div class="d-flex row justify-content-around">
-    <%= render @boards %>
+    <%= render @user.boards %>
   </div>   
 </div>

@@ -6,6 +6,9 @@
     <%= @board.content%>
   </div>
   <div>
+    <p>Escrito por: <strong><%= @board.user.email %></strong></p>
+  </div>
+  <div>
     <%= link_to "Eliminar Tablero", @article, method: :delete %>
   </div>
 </div>

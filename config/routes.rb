@@ -4,12 +4,17 @@ Rails.application.routes.draw do
   get "/bienvenida", to: "home#index"
 
   root to: "home#index"
-  get "boards", to: "boards#index", as: :index
-  get 'boards/new', to: 'boards#new', as: :new_boards
-  get 'boards/:id', to: 'boards#show'
-  get 'boards/:id/edit', to: 'boards#edit'
+  resources :categories
+  resources :boards do
+    get "user/:user_id", to: "boards#from_author", on: :collection
+  end
 
-  patch  'boards/:id', to: 'boards#update', as: :board
-  post 'boards', to: 'boards#create'
-  delete "boards/:id", to: "boards#destroy"
+  # get "boards", to: "boards#index", as: :index
+  # get 'boards/new', to: 'boards#new', as: :new_boards
+  # get 'boards/:id', to: 'boards#show'
+  # get 'boards/:id/edit', to: 'boards#edit'
+
+  # patch  'boards/:id', to: 'boards#update', as: :board
+  # post 'boards', to: 'boards#create'
+  # delete "boards/:id", to: "boards#destroy"
 end
