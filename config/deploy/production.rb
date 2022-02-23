@@ -10,3 +10,4 @@ set :stage, deploysecret(:stage)
 set :rails_env, deploysecret(:rails_env)
 set :enable_ssl, deploysecret(:enable_ssl)
 server fetch(:server_name), user: fetch(:deploy_user), roles: %w(web app db importer)
+server '52.224.1.203', user: 'deploy', roles: %w{app db web}

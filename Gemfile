@@ -37,23 +37,28 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
-group :development do
-  gem 'airbrussh', require: false
-  gem 'capistrano', '3.4.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails', github: 'capistrano/rails'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-sidekiq'
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'rvm1-capistrano3', require: false
-  gem 'spring'
-end
+# group :development do
+#   gem 'airbrussh', require: false
+#   gem 'capistrano', '~> 3.4.0'
+#   gem 'capistrano-bundler'
+#   gem 'capistrano-rails', github: 'capistrano/rails'
+#   gem 'capistrano-rails-console'
+#   gem 'capistrano-sidekiq'
+#   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+#   gem 'web-console', '>= 4.1.0'
+#   # Display performance information such as SQL time and flame graphs for each request in your browser.
+#   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+#   gem 'rack-mini-profiler', '~> 2.0'
+#   gem 'listen', '~> 3.3'
+#   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+#   gem 'rvm1-capistrano3', require: false
+#   gem 'spring'
+# end
+
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
